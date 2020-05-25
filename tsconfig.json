@@ -1,0 +1,29 @@
+{
+	"compilerOptions": {
+		/* Basic Options */
+		"target": "ES2018",
+		"module": "commonjs",
+		"resolveJsonModule": true,
+		"pretty": true,
+		"sourceMap": true,
+		"outDir": "./dist",
+		"rootDir": "./lib",
+		"strict": true,
+		"noImplicitAny": true,
+		"strictNullChecks": true,
+		"strictFunctionTypes": true,
+		"strictBindCallApply": true,
+		"strictPropertyInitialization": true,
+		"noImplicitThis": true,
+		"alwaysStrict": true,
+		"noUnusedLocals": true,
+		"noImplicitReturns": true,
+		"noFallthroughCasesInSwitch": true,
+		"moduleResolution": "node",
+		"baseUrl": "./lib",
+		"allowSyntheticDefaultImports": true,
+		"esModuleInterop": true,
+		"inlineSources": true
+	},
+	"exclude": ["node_modules", "knexfile.ts", "tests"]
+}
