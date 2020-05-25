@@ -16,6 +16,11 @@ export default gql`
 		users(where: UsersWhereInput, query: UsersQueryInput): [User!]
 	}
 
+	type Mutation {
+		logIn(email: String!, password: String!): User!
+		signUp(newUser: SignUpInput!): User!
+	}
+
 	input UserWhereInput {
 		id: Int
 		email: String
@@ -28,5 +33,11 @@ export default gql`
 	input UsersQueryInput {
 		limit: Int!
 		offset: Int!
+	}
+
+	input SignUpInput {
+		fullName: String!
+		email: String!
+		password: String!
 	}
 `;
