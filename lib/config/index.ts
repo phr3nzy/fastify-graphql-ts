@@ -21,8 +21,10 @@ export default {
 	IS_PROD: process.env.NODE_ENV === 'production',
 	PORT: Number(process.env.PORT) || 3000,
 	SECRET: process.env.SECRET || 'super_secret',
-	DATABASE_URL: process.env.DATABASE_URL || '',
-	REDIS_URL: process.env.REDIS_URL || '',
+	DATABASE_URL:
+		process.env.DATABASE_URL ||
+		'postgres://postgres:password@127.0.0.1:5432/postgres-db',
+	REDIS_URL: process.env.REDIS_URL || 'redis://127.0.0.1:6379/',
 	LOG_LEVEL: process.env.LOG_LEVEL || 'info',
 	DISABLE_LOGGING: Boolean(process.env.DISABLE_LOGGING) || false,
 };
