@@ -9,6 +9,7 @@
 	"private": true,
 	"scripts": {
 		"start": "node dist",
+		"build": "tsc",
 		"dev": "tsc-watch --onSuccess 'node dist/index.js'",
 		"run-migrations": "knex migrate:latest --env $NODE_ENV",
 		"test": "jest --verbose --detectOpenHandles",
