@@ -38,6 +38,8 @@ $ yarn start
 
 ## Contributing
 
+See `CONTRIBUTING.md`
+
 ## License
 
 MIT
