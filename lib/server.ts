@@ -1,5 +1,6 @@
 import http from 'http';
 import fastify, { ServerFactoryFunction } from 'fastify';
+import fastifyCookie from 'fastify-cookie';
 import { ApolloServer } from 'apollo-server-fastify';
 import { logger } from './utils';
 import { knex, models, pubsub, redis } from './db';
@@ -41,6 +42,10 @@ const server = fastify({
 	ignoreTrailingSlash: true,
 	bodyLimit: 8 * 1024,
 	trustProxy: true,
+});
+
+server.register(fastifyCookie, {
+	secret: config.COOKIES_SECRET,
 });
 
 server.register(
