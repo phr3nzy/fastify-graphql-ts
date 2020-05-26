@@ -29,9 +29,10 @@ export default {
 	COOKIES_SECRET: process.env.COOKIES_SECRET || 'super_cookies_secret',
 	DATABASE_URL:
 		process.env.DATABASE_URL ||
-		'postgres://postgres:password@127.0.0.1:5432/postgres-db',
+		'postgres://fastify-gql-ts:password@127.0.0.1:5432/fastify-gql-ts-db',
 	REDIS_URL: process.env.REDIS_URL || 'redis://127.0.0.1:6379/',
 	LOG_LEVEL: process.env.LOG_LEVEL || 'info',
 	DISABLE_LOGGING: Boolean(process.env.DISABLE_LOGGING) || false,
 	SENDGRID_API_KEY: process.env.SENDGRID_API_KEY || '',
+	WEB_DOMAIN: process.env.WEB_DOMAIN || 'fastify-gql-ts.com',
 };

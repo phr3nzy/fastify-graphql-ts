@@ -1,4 +1,4 @@
-import { DatabaseMigration } from '.';
+import { DatabaseMigration } from '../migrations.d';
 
 exports.up = ((knex, Promise) => {
 	return knex.schema.createTable('user_account', table => {

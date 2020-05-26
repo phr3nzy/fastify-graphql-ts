@@ -8,7 +8,7 @@ const knexMigrationsConfig: Config = {
 	client: 'pg',
 	connection: DATABASE_URL,
 	migrations: {
-		directory: './lib/db/migrations/**/*.migration.ts',
+		directory: './lib/db/migrations/',
 	},
 	log: {
 		warn: logger.warn,
