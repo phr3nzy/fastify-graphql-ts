@@ -34,4 +34,5 @@ export default {
 	LOG_LEVEL: process.env.LOG_LEVEL || 'info',
 	DISABLE_LOGGING: Boolean(process.env.DISABLE_LOGGING) || false,
 	SENDGRID_API_KEY: process.env.SENDGRID_API_KEY || '',
+	WEB_DOMAIN: process.env.WEB_DOMAIN || 'fastify-gql-ts.com',
 };
