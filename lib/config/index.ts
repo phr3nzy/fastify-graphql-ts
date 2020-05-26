@@ -33,4 +33,5 @@ export default {
 	REDIS_URL: process.env.REDIS_URL || 'redis://127.0.0.1:6379/',
 	LOG_LEVEL: process.env.LOG_LEVEL || 'info',
 	DISABLE_LOGGING: Boolean(process.env.DISABLE_LOGGING) || false,
+	SENDGRID_API_KEY: process.env.SENDGRID_API_KEY || '',
 };
