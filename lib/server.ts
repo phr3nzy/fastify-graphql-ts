@@ -44,13 +44,20 @@ const server = fastify({
 	trustProxy: true,
 });
 
+server.addHook('preHandler', async (request, reply) => {
+	if (String(request.req.url).startsWith('/graphql')) {
+		/* eslint-disable @typescript-eslint/no-explicit-any */
+		(request as any).reply = reply;
+	}
+});
+
 server.register(fastifyCookie, {
 	secret: config.COOKIES_SECRET,
 });
 
 server.register(
 	graphqlServer.createHandler({
-		path: '/',
+		path: '/graphql',
 		cors: {
 			methods: ['GET', 'PUT', 'POST'],
 			credentials: false,
