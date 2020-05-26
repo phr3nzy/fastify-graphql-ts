@@ -13,6 +13,7 @@ export default gql`
 	type Query {
 		user(where: UserWhereInput!): User!
 		users(where: UsersWhereInput, query: UsersQueryInput): [User!]
+		getAccessToken(refreshToken: String!): AccessTokenPayload!
 	}
 
 	type Mutation {
@@ -40,5 +41,9 @@ export default gql`
 		email: String!
 		phoneNumber: String!
 		password: String!
+	}
+
+	type AccessTokenPayload {
+		accessToken: String!
 	}
 `;

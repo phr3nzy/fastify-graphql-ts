@@ -19,6 +19,14 @@ type UsersQueryArguments = {
 	};
 };
 
+type AccessTokenPayload = {
+	accessToken: string;
+};
+
+type GetAccessTokenQueryArguments = {
+	refreshToken: string;
+};
+
 export type UserQuery = (
 	parent: any,
 	arguments: UserQueryArguments,
@@ -32,3 +40,10 @@ export type UsersQuery = (
 	context: Context,
 	info: GraphQLResolveInfo,
 ) => Promise<User[]> | null;
+
+export type GetAccessTokenQuery = (
+	parent: any,
+	arguments: GetAccessTokenQueryArguments,
+	context: Context,
+	info: GraphQLResolveInfo,
+) => Promise<AccessTokenPayload> | null;
