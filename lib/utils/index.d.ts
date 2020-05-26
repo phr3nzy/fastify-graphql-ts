@@ -6,8 +6,24 @@ export type GenerateToken = (
 
 type TokenGenerator = (userId: number | string) => string;
 
+type Token = {
+	userId: number | string;
+	tokenType: string;
+};
+
 export type GenerateAccessToken = TokenGenerator;
 
 export type GenerateRefreshToken = TokenGenerator;
 
-export type VerifyToken = (token: string) => string | Record<string, any>;
+export type VerifyToken = (
+	token: string,
+) => Token | string | Record<string, any> | null;
+
+export type isTokenFunction = (
+	token: Token | string | Record<string, any> | null,
+) => boolean;
+
+export type Session = {
+	accessToken: string;
+	status: string;
+};
