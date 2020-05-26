@@ -60,11 +60,21 @@ export default {
 	signUp: (async (_, { newUser }, { models }, __) => {
 		const { User } = models;
 
-		const { email, fullName, password } = newUser;
+		const { email, fullName, phoneNumber, password } = newUser;
 
-		const user = await User.query().findOne({ email });
+		const [userEmailTaken, userPhoneNumberTaken] = await Promise.all([
+			User.query().findOne({ email }),
+			User.query().findOne({
+				phone_number: phoneNumber,
+			}),
+		]);
 
-		if (user) throw new ApolloError(`User with email ${email} already exists!`);
+		if (userEmailTaken)
+			throw new ApolloError(`User with email ${email} already exists!`);
+		if (userPhoneNumberTaken)
+			throw new ApolloError(
+				`User with Phone Number ${phoneNumber} already exists!`,
+			);
 
 		const hashedPassword = await hash(password, {
 			version: argon2id,
@@ -73,8 +83,9 @@ export default {
 		});
 
 		return await User.query().insertAndFetch({
-			email,
 			fullName,
+			email,
+			phoneNumber,
 			password: hashedPassword,
 		});
 	}) as SignUpMutation,
