@@ -23,6 +23,7 @@ export default gql`
 	input UserWhereInput {
 		id: Int
 		email: String
+		phoneNumber: String
 	}
 
 	input UsersWhereInput {
@@ -37,6 +38,7 @@ export default gql`
 	input SignUpInput {
 		fullName: String!
 		email: String!
+		phoneNumber: String!
 		password: String!
 	}
 `;
