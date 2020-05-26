@@ -7,7 +7,7 @@ const knexMigrationsConfig: Config = {
 	client: 'pg',
 	connection: DATABASE_URL,
 	migrations: {
-		directory: './lib/db/migrations',
+		directory: './lib/db/migrations/**/*.migration.ts',
 	},
 	debug: LOG_LEVEL === 'debug',
 };
