@@ -4,7 +4,12 @@ import { ApolloError } from 'apollo-server-fastify';
 // Populate environment variables from .env file
 config();
 
-const requiredEnvironmentVariables: string[] = ['NODE_ENV', 'PORT', 'SECRET'];
+const requiredEnvironmentVariables: string[] = [
+	'NODE_ENV',
+	'PORT',
+	'SECRET',
+	'COOKIES_SECRET',
+];
 
 requiredEnvironmentVariables.forEach(variable => {
 	if (!(variable in process.env)) {
@@ -21,6 +26,7 @@ export default {
 	IS_PROD: process.env.NODE_ENV === 'production',
 	PORT: Number(process.env.PORT) || 3000,
 	SECRET: process.env.SECRET || 'super_secret',
+	COOKIES_SECRET: process.env.COOKIES_SECRET || 'super_cookies_secret',
 	DATABASE_URL:
 		process.env.DATABASE_URL ||
 		'postgres://postgres:password@127.0.0.1:5432/postgres-db',
