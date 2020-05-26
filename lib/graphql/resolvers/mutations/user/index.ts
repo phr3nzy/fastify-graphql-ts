@@ -35,7 +35,8 @@ export default {
 		await redis.set(
 			`refreshToken:userId-${user.id}`,
 			JSON.stringify({ refreshToken, status: 'ACTIVE' }),
-			'3d',
+			'ex',
+			3 * 24 * 60 * 60, // set to expire in 3 days
 		);
 
 		// Set cookie defaults
