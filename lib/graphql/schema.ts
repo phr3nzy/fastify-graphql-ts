@@ -5,7 +5,6 @@ export default gql`
 		id: Int!
 		fullName: String!
 		email: String!
-		password: String!
 		isDeleted: Boolean!
 		createdAt: String!
 		updatedAt: String!
