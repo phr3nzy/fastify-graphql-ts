@@ -27,9 +27,8 @@ export default {
 		const refreshToken = jwt.generateRefreshToken(Number(user.id));
 
 		// Get the date 3 days from now
-		const threeDaysFromNow = new Date(
-			new Date().getTime() + 3 * 24 * 60 * 60 * 1000,
-		);
+		const threeDaysFromNow: () => Date = () =>
+			new Date(new Date().getTime() + 3 * 24 * 60 * 60 * 1000);
 
 		// Store the user session
 		await redis.set(
@@ -43,7 +42,7 @@ export default {
 		const cookieOptions = {
 			domain: WEB_DOMAIN,
 			httpOnly: true,
-			expires: threeDaysFromNow,
+			expires: threeDaysFromNow(),
 			secure: IS_PROD,
 		};
 
