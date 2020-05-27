@@ -9,6 +9,9 @@ const requiredEnvironmentVariables: string[] = [
 	'PORT',
 	'SECRET',
 	'COOKIES_SECRET',
+	'DATABASE_URL',
+	'REDIS_URL',
+	'WEB_DOMAIN',
 ];
 
 requiredEnvironmentVariables.forEach(variable => {
