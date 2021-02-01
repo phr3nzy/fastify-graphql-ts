@@ -19,7 +19,7 @@
 	},
 	"dependencies": {
 		"@sendgrid/mail": "7.1.1",
-		"apollo-server-fastify": "2.13.1",
+		"apollo-server-fastify": "2.14.2",
 		"argon2": "0.26.2",
 		"dotenv": "8.2.0",
 		"fastify": "2.15.1",
